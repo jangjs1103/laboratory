@@ -70,7 +70,7 @@ resize_images(image_paper_test_path)
 (x_train, y_train)=load_data(image_dir_path)
 (x_test, y_test)=load_data(image_test_path)
 
-n_channel_1 = 32
+n_channel_1 = 16
 n_channel_2 = 64
 n_dense=128
 n_train_epoch=13
