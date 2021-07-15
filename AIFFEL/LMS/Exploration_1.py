@@ -48,8 +48,7 @@ def load_data(img_path, number_of_data=600):  # 가위바위보 이미지 개수
         labels[idx]=2   # 보 : 2
         idx=idx+1
         
-    print("학습데이터(x_train)의 이미지 개수는", idx,"입니다.")
-    return imgs, labels
+    return imgs, labels, idx
 
 # 각 폴더의 path
 image_rock_path = os.getenv("HOME") + "/aiffel/rock_scissor_paper/rock"
@@ -69,8 +68,10 @@ resize_images(image_rock_test_path)
 resize_images(image_scissor_test_path)
 resize_images(image_paper_test_path)
 
-(x_train, y_train)=load_data(image_dir_path)
-(x_test, y_test)=load_data(image_test_path)
+(x_train, y_train, idx)=load_data(image_dir_path)
+print("학습데이터(x_train)의 이미지 개수는", idx,"입니다.")
+(x_test, y_test, idx)=load_data(image_test_path)
+print("학습데이터(x_test)의 이미지 개수는", idx,"입니다.")
 
 n_channel_1 = 16
 n_channel_2 = 32
