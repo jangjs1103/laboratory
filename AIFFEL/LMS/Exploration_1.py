@@ -2,6 +2,8 @@ import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
+import os, glob
 from sklearn.model_selection import train_test_split
 
 def resize_images(img_path):    # Resizing to 28x28
@@ -18,7 +20,7 @@ def resize_images(img_path):    # Resizing to 28x28
     
 	print(len(images), " images resized.")
 
-def load_data(img_path, number_of_data=300):  # 가위바위보 이미지 개수 총합에 주의하세요.
+def load_data(img_path, number_of_data=600):  # 가위바위보 이미지 개수 총합에 주의하세요.
     # 가위 : 0, 바위 : 1, 보 : 2
     img_size=28
     color=3
@@ -71,9 +73,9 @@ resize_images(image_paper_test_path)
 (x_test, y_test)=load_data(image_test_path)
 
 n_channel_1 = 16
-n_channel_2 = 64
+n_channel_2 = 32
 n_dense=128
-n_train_epoch=13
+n_train_epoch=10
 
 model=keras.models.Sequential()
 model.add(keras.layers.Conv2D(n_channel_1, (3,3), activation='relu', input_shape=(28,28,3)))
